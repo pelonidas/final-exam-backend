@@ -1,34 +1,18 @@
 pipeline{
-    agent{
-        label "node"
-    }
+    agent any
+    triggers {
+        pollSCM('* * * * *')
+      }
     stages{
-        stage("A"){
-            steps{
-                echo "========executing A========"
-            }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
+      stage('Checkout'){
+        steps{
+          echo "Checking out the code"
         }
-    }
-    post{
-        always{
-            echo "========always========"
+      }
+      stage('Build'){
+        steps{
+          echo "Building the project"
         }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
-        }
-    }
+      }
+    } 
 }
