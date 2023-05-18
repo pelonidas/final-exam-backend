@@ -11,8 +11,8 @@ export class UserService {
   ): Promise<user | null> {
     return this.prisma.user.findUnique({
       where: {
-        id: userWhereUniqueInput.id.toString(),
-        email: userWhereUniqueInput.email.toString(),
+        id: userWhereUniqueInput.id?.toString(),
+        email: userWhereUniqueInput.email?.toString(),
       },
     });
   }
