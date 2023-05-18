@@ -19,12 +19,11 @@ model place {
 }
 
 model place_location {
-  id                String  @id(map: "place_location_pk") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  address           String?
-  latitude          Float?
-  longtitude        Float?
-  place_location_id String? @db.Uuid
-  place             place[]
+  id         String  @id(map: "place_location_pk") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  address    String?
+  latitude   Float?
+  longtitude Float?
+  place      place[]
 }
 
 model todo {
