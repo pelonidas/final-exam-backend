@@ -1,18 +1,20 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { UserController } from './user.controller';
+import { prismaMock } from '../singleton';
+import { createUser } from './functions';
 
-describe('UserController', () => {
-  let controller: UserController;
+test('should create new user', async () => {
+  const user = {
+    id: '1',
+    username: 'test',
+    password: 'test',
+    email: 'test@test.com',
+  };
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [UserController],
-    }).compile();
+  prismaMock.user.create.mockResolvedValue(user);
 
-    controller = module.get<UserController>(UserController);
-  });
-
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  await expect(createUser(user)).resolves.toEqual({
+    id: '1',
+    username: 'test',
+    password: 'test',
+    email: 'test@test.com',
   });
 });
