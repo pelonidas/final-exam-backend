@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpException,
   Param,
   Post,
   Put,
@@ -15,7 +16,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get('id')
-  async getUser(@Param('id') id: string): Promise<user> {
+  async getUser(@Param('id') id: string): Promise<user | null> {
     return this.userService.user({ id });
   }
 
