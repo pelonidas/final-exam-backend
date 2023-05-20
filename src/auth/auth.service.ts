@@ -1,4 +1,3 @@
-import { PrismaService } from '@/prisma.service';
 import {
   Injectable,
   NotFoundException,
@@ -7,6 +6,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { AuthEntity } from './entity/auth.entity';
 import * as bcrypt from 'bcrypt';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class AuthService {

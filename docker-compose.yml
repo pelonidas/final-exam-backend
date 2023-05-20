@@ -1,0 +1,11 @@
+version: '3'
+services:
+  test-db:
+    image: postgres:9.6
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nestjs
+    ports:
+      - 5432:5432
