@@ -11,7 +11,7 @@ export class TodoService {
   ): Promise<todo | null> {
     return this.prisma.todo.findUnique({
       where: {
-        id: userWhereInput.id.toString(),
+        id: userWhereInput.id?.toString(),
       },
     });
   }

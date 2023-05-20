@@ -8,7 +8,7 @@ export class PlaceService {
 
   async place(
     placeWhereUniqueInput: Prisma.placeWhereUniqueInput,
-  ): Promise<place> {
+  ): Promise<place | null> {
     return this.prisma.place.findUnique({
       where: placeWhereUniqueInput,
     });

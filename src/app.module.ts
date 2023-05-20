@@ -8,9 +8,10 @@ import { PlaceService } from './place/place.service';
 import { PlaceController } from './place/place.controller';
 import { PlaceLocationController } from './place_location/place_location.controller';
 import { UserController } from './user/user.controller';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [],
+  imports: [AuthModule],
   controllers: [
     TodoController,
     PlaceController,

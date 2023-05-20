@@ -11,7 +11,7 @@ export class PlaceLocationService {
   ): Promise<place_location | null> {
     return this.prisma.place_location.findUnique({
       where: {
-        id: placeLocationWhereUniqueInput.id.toString(),
+        id: placeLocationWhereUniqueInput.id?.toString(),
       },
     });
   }

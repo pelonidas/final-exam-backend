@@ -1,12 +1,12 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, user } from '@prisma/client';
 import { faker } from '@faker-js/faker';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const users = [];
+  const users: user[] = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 1; i++) {
     const email = faker.internet.email();
 
     const u = await prisma.user.upsert({
@@ -14,7 +14,7 @@ async function main() {
       update: {},
       create: {
         email,
-        password: faker.internet.password(),
+        password: 'gastanovec123',
         username: faker.internet.userName(),
         place: {
           create: {

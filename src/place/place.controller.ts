@@ -15,7 +15,7 @@ export class PlaceController {
   constructor(private readonly placeService: PlaceService) {}
 
   @Get(':id')
-  async getPlace(@Param('id') id: string): Promise<place> {
+  async getPlace(@Param('id') id: string): Promise<place | null> {
     return this.placeService.place({ id });
   }
 
