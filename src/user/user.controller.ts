@@ -6,6 +6,7 @@ import {
   Get,
   NotFoundException,
   Param,
+  ParseUUIDPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -18,7 +19,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get(':id')
-  async getUser(@Param('id') id: string): Promise<user | null> {
+  async getUser(@Param('id', ParseUUIDPipe) id: string): Promise<user | null> {
     const user = await this.userService.user({ id });
     if (!user) throw new NotFoundException('User not found');
     return user;
