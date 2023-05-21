@@ -1,8 +1,10 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
@@ -15,9 +17,11 @@ import { CreateUserDto } from './dto/createUser.dto';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('id')
+  @Get(':id')
   async getUser(@Param('id') id: string): Promise<user | null> {
-    return this.userService.user({ id });
+    const user = await this.userService.user({ id });
+    if (!user) throw new NotFoundException('User not found');
+    return user;
   }
 
   @Get()
