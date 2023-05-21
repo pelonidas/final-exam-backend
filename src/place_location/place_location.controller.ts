@@ -14,7 +14,7 @@ import { Prisma, place_location } from '@prisma/client';
 export class PlaceLocationController {
   constructor(private readonly placeLocationService: PlaceLocationService) {}
 
-  @Get('id')
+  @Get(':id')
   async getPlaceLocation(
     @Param('id') id: string,
   ): Promise<place_location | null> {
