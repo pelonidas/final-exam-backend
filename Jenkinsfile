@@ -11,11 +11,8 @@ pipeline {
       }
       stage('Test'){
         steps{
-          sh 
+          echo "Testing project 2"
         }
       }
-    }
-    post {
-
     }
 }
