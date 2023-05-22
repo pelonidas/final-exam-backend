@@ -36,16 +36,11 @@ export class PlaceLocationController {
       placeId: string;
     },
   ): Promise<place_location> {
-    const { address, latitude, longitude, placeId } = placeLocationData;
+    const { address, latitude, longitude } = placeLocationData;
     return this.placeLocationService.createPlaceLocation({
       address,
       latitude,
       longtitude: longitude,
-      place: {
-        connect: {
-          id: placeId,
-        },
-      },
     });
   }
 
