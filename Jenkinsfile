@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        echo 'Checking out...'
+        echo 'Checking outf...'
       }
     } 
     stage('Git') {
