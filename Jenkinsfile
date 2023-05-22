@@ -1,3 +1,4 @@
+//Jenkins file only to tutorial example
 pipeline {
   agent any
     
@@ -7,7 +8,7 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/pelonidas/final-exam-backend.git'
+        git 'https://github.com/gustavoapolinario/node-todo-frontend'
       }
     }
         
