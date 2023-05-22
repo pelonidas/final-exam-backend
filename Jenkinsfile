@@ -1,31 +1,26 @@
 pipeline {
   agent any
     
-  tools {nodejs "NodeJs"}
+  tools {nodejs "node"}
     
   stages {
-    stage('Checkout') {
+        
+    stage('Cloning Git') {
       steps {
-        echo 'Checking outf...'
+        git 'https://github.com/gustavoapolinario/node-todo-frontend'
       }
-    } 
-    stage('Git') {
+    }
+        
+    stage('Install dependencies') {
       steps {
-        git 'https://github.com/pelonidas/final-exam-backend.git'
+        sh 'npm install'
       }
     }
      
-    stage('Build') {
-      steps {
-        sh 'npm install'
-        sh 'npm run build'
-      }
-    } 
-            
     stage('Test') {
       steps {
-        sh 'npm run test:e2e'
+         sh 'npm test'
       }
-    }
+    }      
   }
 }
