@@ -1,20 +1,28 @@
 pipeline {
-    agent {
-      docker {
-            image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
-        }
-    }
-    stages{
-     stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
-      stage('Test'){
-        steps{
-          echo "Testing project 2"
-        }
+  agent any
+    
+  tools {nodejs "node"}
+    
+  stages {
+        
+    stage('Git') {
+      steps {
+        git 'https://github.com/pelonidas/final-exam-backend.git'
       }
     }
+     
+    stage('Build') {
+      steps {
+        sh 'npm install'
+         sh 'npm run build'
+      }
+    }  
+    
+            
+    stage('Test') {
+      steps {
+        sh 'npm run test:e2e'
+      }
+    }
+  }
 }
