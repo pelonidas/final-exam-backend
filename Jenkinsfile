@@ -1,14 +1,16 @@
 pipeline {
-    agent any
-    triggers {
-        pollSCM('* * * * *')
-      }
-    stages{
-      stage('Build'){
-        steps{
-          echo "Building the project2"
+    agent {
+      docker {
+            image 'node:lts-bullseye-slim' 
+            args '-p 3000:3000' 
         }
-      }
+    }
+    stages{
+     stage('Build') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
       stage('Test'){
         steps{
           echo "Testing project 2"
