@@ -10,7 +10,7 @@ pipeline {
       steps {
         git branch: 'main', url: 'https://github.com/pelonidas/final-exam-backend.git'
      }
-  }
+  
     }
         
     stage('Install dependencies') {
@@ -24,5 +24,5 @@ pipeline {
          sh 'npm test'
       }
     }      
-}
   }
+}
