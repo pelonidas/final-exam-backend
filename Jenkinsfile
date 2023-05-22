@@ -8,8 +8,9 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/pelonidas/final-exam-backend.git'
-      }
+        git branch: 'main', url: 'https://github.com/pelonidas/final-exam-backend.git'
+     }
+  }
     }
         
     stage('Install dependencies') {
@@ -24,4 +25,3 @@ pipeline {
       }
     }      
   }
-}
