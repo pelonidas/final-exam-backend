@@ -4,7 +4,7 @@ pipeline {
   
    environment {
         PATH = "$PATH:/usr/local/bin"
-    }
+  }
 
   tools {nodejs "NodeJs"}
     
