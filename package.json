@@ -71,8 +71,8 @@
     "typescript": "^4.7.4"
   },
   "jest": {
-    "setupFiles": [
-      "<rootDir>/.jest/setEnvVars.js"
+    "setupFilesAfterEnv": [
+      "./.jest/setEnvVars.js"
     ],
     "clearMocks": true,
     "preset": "ts-jest",
