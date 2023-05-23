@@ -1,7 +1,5 @@
-# Base image
 FROM node:18-alpine
 
-# Create app directory, this is in our container
 WORKDIR /usr/src/app
 
 COPY package*.json ./
