@@ -23,7 +23,7 @@
     "seed": "npx prisma db seed",
     "db:restart": "docker rm -f postgresql-container && docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=123 -e POSTGRES_DB=nestjs -e POSTGRES_USER=postgres -d postgres && sleep 1",
     "pretest:e2e": "npm run db:restart && dotenv -e .env.test -- prisma migrate reset --force --skip-seed",
-    "test:e2e": "jest -i --no-cache --watch --config jest-e2e.json"
+    "test:e2e": "jest -i --no-cache --config jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
