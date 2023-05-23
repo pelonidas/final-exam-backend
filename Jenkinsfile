@@ -3,7 +3,7 @@ pipeline {
   agent any
   
    environment {
-        PATH = "$PATH:<folder_where_docker-compose_is>"
+        PATH = "$PATH:/usr/local/bin"
     }
 
   tools {nodejs "NodeJs"}
