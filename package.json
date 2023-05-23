@@ -21,7 +21,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "seed": "npx prisma db seed",
-    "db:restart": "sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=123 -e POSTGRES_DB='nestjs' -e POSTGRES_USER='postres' -d postgres && sleep 1",
+    "db:restart": "docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=123 -e POSTGRES_DB='nestjs' -e POSTGRES_USER='postres' -d postgres && sleep 1",
     "pretest:e2e": "npm run db:restart && dotenv -e .env.test -- prisma migrate reset --force --skip-seed",
     "test:e2e": "jest -i --no-cache --watch --config jest-e2e.json"
   },
