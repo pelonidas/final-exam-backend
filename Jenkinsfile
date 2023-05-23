@@ -1,7 +1,11 @@
 //Jenkins file only to tutorial example
 pipeline {
   agent any
-    
+  
+   environment {
+        PATH = "$PATH:<folder_where_docker-compose_is>"
+    }
+
   tools {nodejs "NodeJs"}
     
   stages {
