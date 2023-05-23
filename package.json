@@ -76,9 +76,6 @@
     "moduleNameMapper": {
       "@/(.*)": "<rootDir>/$1"
     },
-    "setupFilesAfterEnv": [
-      "<rootDir>/singleton.ts"
-    ],
     "moduleFileExtensions": [
       "js",
       "json",
