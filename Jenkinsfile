@@ -32,15 +32,20 @@ pipeline {
 
     stage ('Build Docker Image') {
       steps {
-        sh 'docker build -t final-exam-backend .'
-        sh 'docker tag final-exam-backend 433332299350.dkr.ecr.eu-north-1.amazonaws.com/final-project-docker-images'
+        script {
+          app = docker.build("pelonidas/final-exam-backend")
+        }
       }
     }
 
     stage ('Push to ECR') {
       steps {
-        sh 'docker login -u AWS -p $(aws ecr get-login-password --region eu-north-1) 433332299350.dkr.ecr.eu-north-1.amazonaws.com'
-        sh 'docker push 433332299350.dkr.ecr.eu-north-1.amazonaws.com/final-project-docker-images'
+        script {
+          docker.withRegistry('https://433332299350.dkr.ecr.eu-north-1.amazonaws.com', 'ecr:eu-north-1:aws-credentials') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+          }
+        }
       }
     }
   }
