@@ -45,5 +45,11 @@ pipeline {
         sh "docker run -d -p 80:3000 --name final-project-docker-images final-project-docker-images:${env.BUILD_NUMBER}"
       }
     }
+
+    stage ('Cleanup') {
+      steps {
+        sh "docker image prune -a"
+      }
+    }
   }
 }
