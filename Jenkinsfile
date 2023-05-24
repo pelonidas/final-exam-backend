@@ -38,9 +38,11 @@ pipeline {
       }
     }
 
-    stage ('Remove previous image') {
+    stage ('Build new container') {
       steps {
-        sh 'docker rmi -f $(docker images -q)'
+        sh 'docker stop final-project-docker-images'
+        sh 'docker rm final-project-docker-images'
+        sh 'docker run -d -p 80:3000 --name final-project-docker-images final-project-docker-images:${env.BUILD_NUMBER}'
       }
     }
   }
