@@ -5,6 +5,6 @@ export class AuthEntity {
   @ApiProperty()
   accessToken: string;
 
-  @ApiProperty()
-  user_id: string;
+  // @ApiProperty()
+  // user_id: string;
 }
