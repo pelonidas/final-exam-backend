@@ -33,7 +33,7 @@ pipeline {
     stage ('Build Docker Image') {
       steps {
         script {
-          app = docker.build("final-exam-backend:${env.BUILD_NUMBER}")
+          app = docker.build("final-project-docker-images:${env.BUILD_NUMBER}")
         }
       }
     }
