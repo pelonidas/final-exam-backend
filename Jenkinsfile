@@ -38,16 +38,16 @@ pipeline {
       }
     }
 
-    stage ('Push to ECR') {
-      steps {
-        script {
-          docker.withRegistry('https://433332299350.dkr.ecr.eu-north-1.amazonaws.com', 'ecr:eu-north-1:aws-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-          }
-        }
-      }
-    }
+    // stage ('Push to ECR') {
+    //   steps {
+    //     script {
+    //       docker.withRegistry('https://433332299350.dkr.ecr.eu-north-1.amazonaws.com', 'ecr:eu-north-1:aws-credentials') {
+    //         app.push("${env.BUILD_NUMBER}")
+    //         app.push("latest")
+    //       }
+    //     }
+    //   }
+    // }
 
     // stage ('Pull latest image from ECR'){
     //   steps {
