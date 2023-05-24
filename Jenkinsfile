@@ -48,5 +48,16 @@ pipeline {
         }
       }
     }
+
+    // stage ('Pull latest image from ECR'){
+    //   steps {
+    //     script {
+    //       docker.withRegistry('https://433332299350.dkr.ecr.eu-north-1.amazonaws.com', 'ecr:eu-north-1:aws-credentials') {
+    //         app = docker.image("final-project-docker-images:${env.BUILD_NUMBER}")
+    //         app.pull()
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
