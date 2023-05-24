@@ -42,7 +42,7 @@ pipeline {
       steps {
         sh 'docker stop final-project-docker-images'
         sh 'docker rm final-project-docker-images'
-        sh 'docker run -d -p 80:3000 --name final-project-docker-images final-project-docker-images:${env.BUILD_NUMBER}'
+        sh 'docker run -d -p 80:3000 --name final-project-docker-images final-project-docker-images'
       }
     }
   }
