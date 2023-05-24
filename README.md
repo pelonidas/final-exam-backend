@@ -34,7 +34,7 @@ $ npm install
 
 ddd
 
-## Running the app
+## Running the appd
 
 ```bash
 # development
