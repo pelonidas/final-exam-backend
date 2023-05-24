@@ -33,7 +33,7 @@ pipeline {
     stage ('Build Docker Image') {
       steps {
         script {
-          app = docker.build("pelonidas/final-exam-backend")
+          app = docker.build("final-exam-backend:${env.BUILD_NUMBER}")
         }
       }
     }
