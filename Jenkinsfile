@@ -28,6 +28,20 @@ pipeline {
          sh 'npm run test:e2e'
          sh 'docker rm -f postgresql-container'
       }
-    }      
+    }
+
+    stage ('Build Docker Image') {
+      steps {
+        sh 'docker build -t final-exam-backend .'
+        sh 'docker tag final-exam-backend 433332299350.dkr.ecr.eu-north-1.amazonaws.com/final-project-docker-images'
+      }
+    }
+
+    stage ('Push to ECR') {
+      steps {
+        sh 'aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 433332299350.dkr.ecr.eu-north-1.amazonaws.com',
+        sh 'docker push 433332299350.dkr.ecr.eu-north-1.amazonaws.com/final-project-docker-images'
+      }
+    }
   }
 }

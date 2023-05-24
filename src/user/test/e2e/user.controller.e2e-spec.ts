@@ -5,7 +5,6 @@ import * as request from 'supertest';
 
 describe('UserController Integration', () => {
   let app: INestApplication;
-  const userId = '2a486b05-3ccf-4db4-8b41-9bcda73173e2';
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
