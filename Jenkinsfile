@@ -1,20 +1,17 @@
-//Jenkins file only to tutorial example
 pipeline {
   agent any
   
-   environment {
-        PATH = "$PATH:/usr/local/bin"
+  environment {
+    PATH = "$PATH:/usr/local/bin"
   }
 
-  tools {nodejs "NodeJs"}
+  tools { nodejs "NodeJs" }
     
-  stages {
-        
+  stages {   
     stage('Cloning Git') {
       steps {
         git branch: 'main', url: 'https://github.com/pelonidas/final-exam-backend.git'
-     }
-  
+      }
     }
         
     stage('Install dependencies') {

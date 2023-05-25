@@ -42,7 +42,7 @@ export class UserController {
   @Put(':id')
   async updateUser(
     @Param('id') id: string,
-    userData: Prisma.userUpdateInput,
+    @Body() userData: Prisma.userUpdateInput,
   ): Promise<user> {
     return this.userService.updateUser({
       where: { id },
